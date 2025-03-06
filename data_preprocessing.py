@@ -11,3 +11,7 @@ btc_data.dropna(inplace=True)
 
 btc_data.to_csv('btc_preprocessed.csv')
 print(btc_data.head())
+
+btc_data['Label'] = (btc_data['Price_Change'] > 0).astype(int)
+btc_data.to_csv('btc_preprocessed.csv')  
+print(btc_data[['Close', 'SMA_20', 'SMA_50', 'Price_Change', 'Label']].head())
